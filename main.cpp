@@ -72,7 +72,8 @@ int main() {
         std::cout << std::fixed << std::setprecision(2);
         std::cout << std::endl;
 
-        std::cout << "  The Future Value of the account, starting with an initial capital of " << monetize_double(account_present_value) << ", with a monthly interest rate of " << monthly_interest_rate << " (" << (monthly_interest_rate * 100.00) << " %)" << "," << std::endl;
+        std::cout << "  The Future Value of the account, starting with an initial capital of " << monetize_double(account_present_value) << "," << std::endl;
+        std::cout << "  with a monthly interest rate of " << monthly_interest_rate << " (" << (monthly_interest_rate * 100.00) << " %)" << "," << std::endl;
         std::cout << "  and after " << months_amount << " month" << (months_amount == 1 ? "" : "s") << ", is equal to: " << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount)) << std::endl;
         std::cout << "  And that figure can be broken down month by month as follows:" << std::endl;
         render_future_value_table(account_present_value, monthly_interest_rate, months_amount);

@@ -70,7 +70,8 @@ reinier@reinier % ./your_prefered_executable_file_name
   Enter the monthly interest rate: 0.245
   Enter the number of months that the money will be left in the account: 10
 
-  The Future Value of the account, starting with an initial capital of $ 1,250.57, with a monthly interest rate of 0.24 (24.50 %),
+  The Future Value of the account, starting with an initial capital of $ 1,250.57, 
+  with a monthly interest rate of 0.24 (24.50 %),
   and after 10 months, is equal to: $ 11,189.26
   And that figure can be broken down month by month as follows:
 
@@ -104,7 +105,8 @@ reinier@reinier % ./your_prefered_executable_file_name
   Enter the monthly interest rate: 0.34
   Enter the number of months that the money will be left in the account: 6
 
-  The Future Value of the account, starting with an initial capital of $ 1,268.99, with a monthly interest rate of 0.34 (34.00 %),
+  The Future Value of the account, starting with an initial capital of $ 1,268.99, 
+  with a monthly interest rate of 0.34 (34.00 %),
   and after 6 months, is equal to: $ 7,346.61
   And that figure can be broken down month by month as follows:
 
