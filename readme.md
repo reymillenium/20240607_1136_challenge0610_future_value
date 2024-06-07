@@ -7,16 +7,21 @@
 ### Exercise Description:
 
 Suppose you have a certain amount of money in a savings account that earns compound monthly interest, and you want to calculate the amount that you will have after a specific number of months. The formula, which is known as the future value formula, is
+
 𝐹 = 𝑃 × 1 + 𝑖<sup>𝑡</sup>
 
 The terms in the formula are as follows:
 
-_• F_ is the **future value** of the account after the specified time period.
-_• P_ is the **present value** of the account.
-_• i_ is the **monthly interest rate**.
-_• t_ is the **number of months**.
+• _F_ is the **future value** of the account after the specified time period.
 
-Write a program that prompts the user to enter the account’s present value, monthly interest rate, and the number of months that the money will be left in the account. The program should pass these values to a function named `futureValue` that returns the future value of the account, after the specified number of months. The program should display the account’s future value.
+• _P_ is the **present value** of the account.
+
+• _i_ is the **monthly interest rate**.
+
+• _t_ is the **number of months**.
+
+Write a program that prompts the user to enter the account’s present value, monthly interest rate, and the number of months that the money will be left in the account. The program should pass these values to a function named`futureValue`that returns the future value of the account, after the
+specified number of months. The program should display the account’s future value.
 
 **Note:**
 
@@ -33,8 +38,6 @@ And that's also **not** the Future Value Formula.
 The real Future Value Formula (using Compound interest) is:
 
 𝐹 = 𝑃 × (1 + 𝑖)<sup>𝑡</sup>
-
-
 
 ## Execution from the Terminal (Alternative way without an IDE):
 
