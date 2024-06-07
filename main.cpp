@@ -12,19 +12,12 @@
  **/
 
 #include <iostream>
-#include <string>  // for string, to_string, etc
-#include <cmath> // for sqrt, sin, pow
-#include <climits>
-#include <iomanip> // for setprecision, setw, fixed
-#include<array>  // for array
-#include<random> // for random_device
-#include <cstdlib> // For rand and srand
-#include <ctime>   // For the time function
-#include <sstream> // for stringstream, humanize_integer, humanize_double
-#include <vector> // to use vectors
-#include <fstream> // For ifstream, ofstrea, fstream
-#include <numeric> // For accumulate, transform_reduce (in the vectors)
-#include <algorithm> // For max_element, min_element (to use in vectors), or for max()
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include <algorithm>
 
 template<typename T>
 auto get_value(const std::string &) -> T;
