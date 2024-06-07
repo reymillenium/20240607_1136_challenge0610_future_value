@@ -81,8 +81,63 @@ bool is_prime(unsigned long long int);
 //     }
 // };
 
+void scold_user_if_invalid_input(long double, double);
+
+bool is_invalid(long double, double);
+
+double future_value(double, double, int);
+
+void render_future_value_table(double, double, int);
+
+void render_table_header();
+
+void render_table_row(double, double, int);
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    bool keep_calculating = false;
+
+    do {
+        double account_present_value;
+        double monthly_interest_rate;
+        int months_amount;
+
+        std::cout << std::endl;
+
+        // Input of the Account's Present Value + Validation
+        do {
+            account_present_value = get_value<double>("  Enter the account's Present Value: ");
+            scold_user_if_invalid_input(account_present_value, 0);
+        } while (is_invalid(account_present_value, 0));
+
+        // Input of the Monthly Interest Rate + Validation
+        do {
+            monthly_interest_rate = get_value<double>("  Enter the monthly interest rate: ");
+            scold_user_if_invalid_input(monthly_interest_rate, 0);
+        } while (is_invalid(monthly_interest_rate, 0));
+
+        // Input of the Nnumber of Months that the money will be left in the account + Validation
+        do {
+            months_amount = get_value<int>("  Enter the number of months that the money will be left in the account: ");
+            scold_user_if_invalid_input(months_amount, 0);
+        } while (is_invalid(months_amount, 0));
+
+        // Outputs Block
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << std::endl;
+
+        std::cout << "  The Future Value of the account, starting with an initial capital of " << monetize_double(account_present_value) << ", with a monthly interest rate of " << monthly_interest_rate << " (" << (monthly_interest_rate * 100.00) << " %)" << "," << std::endl;
+        std::cout << "  and after " << months_amount << " month" << (months_amount == 1 ? "" : "s") << ", is equal to: " << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount)) << std::endl;
+        std::cout << "  And that figure can be broken down month by month as follows:" << std::endl;
+        render_future_value_table(account_present_value, monthly_interest_rate, months_amount);
+        std::cout << std::endl;
+
+        // Assesing if the user wants to continue using the program:
+        auto keep_calculating_str = get_value<std::string>("  Would you like to keep calculating the Future Value (y/n)? ");
+        // Transforms keep_calculating_str to lowercase
+        std::transform(keep_calculating_str.begin(), keep_calculating_str.end(), keep_calculating_str.begin(), [](const unsigned char c) { return std::tolower(c); });
+        keep_calculating = keep_calculating_str != "n" && keep_calculating_str != "no";
+    } while (keep_calculating);
+
     return 0;
 }
 
@@ -234,4 +289,36 @@ bool is_prime(const unsigned long long int value) {
             return false;
     }
     return true;
+}
+
+bool is_invalid(const long double value, const double min_value) {
+    return value < min_value;
+}
+
+void scold_user_if_invalid_input(const long double value, const double min_value) {
+    if (is_invalid(value, min_value)) std::cout << "You must type a number greater or equal than " << min_value << ". Try again!" << std::endl;
+}
+
+double future_value(const double present_value, const double monthly_interest, const int months_amount) {
+    return present_value * pow((1 + monthly_interest), months_amount);
+}
+
+void render_future_value_table(const double present_value, const double monthly_interest, const int months_amount) {
+    render_table_header();
+    for (int month = 1; month <= months_amount; month++)
+        render_table_row(present_value, monthly_interest, month);
+}
+
+void render_table_header() {
+    std::cout << std::endl;
+    std::cout << "  --------------------------" << std::endl;
+    std::cout << "  | Month |  Future Value  |" << std::endl;
+    std::cout << "  --------------------------" << std::endl;
+}
+
+void render_table_row(const double account_present_value, const double monthly_interest_rate, const int months_amount) {
+    std::cout << std::fixed << std::setprecision(2);
+    // std::cout << "  | " << std::setw(5) << months_amount << " | " << std::setw(12) << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount)) << " |" << std::endl;
+    std::cout << "  | " << std::setw(5) << months_amount << " | " << std::setw(14) << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount), 2, false, "USD") << " |" << std::endl;
+    std::cout << "  --------------------------" << std::endl;
 }
