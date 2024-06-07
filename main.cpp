@@ -150,7 +150,6 @@ void render_table_header() {
 
 void render_table_row(const double account_present_value, const double monthly_interest_rate, const int months_amount) {
     std::cout << std::fixed << std::setprecision(2);
-    // std::cout << "  | " << std::setw(5) << months_amount << " | " << std::setw(12) << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount)) << " |" << std::endl;
     std::cout << "  | " << std::setw(5) << months_amount << " | " << std::setw(14) << monetize_double(future_value(account_present_value, monthly_interest_rate, months_amount), 2, false, "USD") << " |" << std::endl;
     std::cout << "  --------------------------" << std::endl;
 }
